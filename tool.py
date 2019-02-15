@@ -164,6 +164,8 @@ def get_doc_bibilo(doc_url,res_file):
         r = requests.get(doc_url,allow_redirects=False,timeout = 10)
     except:
         print(doc_url)
+        return
+        
     bs = BeautifulSoup(r.text,"html.parser")
 
     #journal
