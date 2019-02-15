@@ -160,8 +160,10 @@ def get_doc_bibilo(doc_url,res_file):
     """
     csv_writer = csv.writer(res_file,delimiter="\t")
 
-    r = requests.get(doc_url,allow_redirects=False)
-
+    try:
+        r = requests.get(doc_url,allow_redirects=False,timeout = 10)
+    except:
+        print(doc_url)
     bs = BeautifulSoup(r.text,"html.parser")
 
     #journal
