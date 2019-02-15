@@ -2,7 +2,21 @@
 一个中国知网的爬虫工具，给定作者，可以获得该作者的所有文献的题录
 
 ### 范例
+使用时需要将文件tool.py放在正确的位置
 ```
+import sys
+sys.path.append(".")
+import tool as cnki
+from pprint import pprint as fprint
+
+
+if __name__ == "__main__":
+    tmp = cnki.get_doc_url_set("牛丽慧","南京大学") 
+    fprint(tmp)
+    res_file = open("res.csv","a",encoding="utf-8",newline="")
+    for item in tmp:
+        cnki.get_doc_bibilo(item,res_file)
+    res_file.close()
 
 ```
 ### 文档
